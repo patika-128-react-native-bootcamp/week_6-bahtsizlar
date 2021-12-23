@@ -2,9 +2,12 @@
 
 # Marvel API Task List
 
-- [] Marvel çizgi romanlarının listesine erişim sağlayabilecek ve ilgili çizgi romanda yer alan kahramanların listesini görebilecek. (GET /v1/public/comics)
-
-- [] Uygulama içerisinde kullanıcı kahraman adına göre arama yapabilecek, (GET /v1/public/comics/{comicId}/characters)
+- [] Marvel çizgi romanlarının listesine erişim sağlayabilecek ve ilgili çizgi romanda yer alan kahramanların listesini görebilecek.
+  (GET /v1/public/comics)
+  (GET /v1/public/characters)
+- [] Uygulama içerisinde kullanıcı kahraman adına göre arama yapabilecek,
+  (GET /v1/public/comics/{comicId}/characters),
+  (GET /v1/public/characters/{characterId}/comics)
 
 - [] [ ] Kullanıcı eğer isterse sevdiği çizgi romanı ya da kahramanı favorilerine alabilecek. (GET /v1/public/characters)
 
