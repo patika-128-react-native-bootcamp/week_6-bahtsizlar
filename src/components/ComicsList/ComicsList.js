@@ -16,7 +16,6 @@ const ComicsList = () => {
   if (!data) return null;
 
   if (data) {
-    console.log(data.data.results);
     return (
       <FlatList
         data={data.data.results}

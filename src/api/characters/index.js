@@ -13,6 +13,11 @@ export const charactersApi = createApi({
         `/public/characters?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`,
       providesTags: (result, error, arg) => [{type: 'Characters', id: arg}],
     }),
+    getCharacterByName: builder.query({
+      query: characterName =>
+        `/public/characters?nameStartsWith=${characterName}&ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`,
+      providesTags: (result, error, arg) => [{type: 'Characters', id: arg}],
+    }),
     getCharacterById: builder.query({
       query: characterId =>
         `/public/characters/${characterId}/?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`,
@@ -21,5 +26,8 @@ export const charactersApi = createApi({
   }),
 });
 
-export const {useGetAllCharactersQuery, useGetCharacterByIdQuery} =
-  charactersApi;
+export const {
+  useGetAllCharactersQuery,
+  useGetCharacterByNameQuery,
+  useGetCharacterByIdQuery,
+} = charactersApi;

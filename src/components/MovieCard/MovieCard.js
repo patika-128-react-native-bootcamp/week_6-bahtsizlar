@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {TouchableOpacity, TouchableWithoutFeedback, Text} from 'react-native';
-import {Button, Card, Title, Paragraph} from 'react-native-paper';
-import {Icon} from 'react-native-vector-icons/MaterialCommunityIcons';
+import {TouchableOpacity, Text} from 'react-native';
+import {Card} from 'react-native-paper';
 import styles from './MovieCard.styles';
 
 const MovieCard = ({item, onComicPressed, onFavPress}) => (
@@ -11,8 +10,10 @@ const MovieCard = ({item, onComicPressed, onFavPress}) => (
 
       {item.creators.items.map(i => {
         return (
-          <Card.Content style={styles.creator_container}>
-            <Text style={styles.row}>{i.name}</Text>
+          <Card.Content key={i.id} style={styles.creator_container}>
+            <Text key={i.id} style={styles.row}>
+              {i.name}
+            </Text>
           </Card.Content>
         );
       })}
