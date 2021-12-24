@@ -1,5 +1,4 @@
 package com.week_6;
-
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -34,6 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
+ 
       };
 
   @Override
