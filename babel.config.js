@@ -8,9 +8,14 @@ module.exports = {
         path: '.env',
         blacklist: null,
         whitelist: null,
-        safe: false,
+        safe: true,
         allowUndefined: true,
       },
     ],
   ],
+  env: {
+    production: {
+      plugins: ['react-native-paper/babel'],
+    },
+  },
 };

@@ -1,28 +1,27 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import StackNavigation from './StackNavigation';
 
-import Comics from '../pages/Comics';
-import routes from './routes';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-export default function App() {
+const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name={routes.COMICS_PAGE}
-          component={Comics}
+      <Tab.Navigator>
+        <Tab.Screen
           options={{
-            headerTitle: 'Comics',
-            headerTintColor: 'white',
-            headerStyle: {
-              backgroundColor: '#rgba(0,0,0,0.7)',
-            },
+            tabBarIcon: ({...rest}) => <Icon name="home-outline" {...rest} />,
+            tabBarLabel: 'Home',
           }}
+          name="HomePage"
+          component={StackNavigation}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default Navigation;
