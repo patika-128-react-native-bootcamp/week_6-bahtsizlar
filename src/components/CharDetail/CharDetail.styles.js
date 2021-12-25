@@ -10,15 +10,6 @@ export default StyleSheet.create({
     borderWidth: 3,
     borderRadius: 10,
   },
-  container: {
-    marginLeft: 0,
-    marginRight: SIZES.radius,
-  },
-  image: {
-    width: 250,
-    height: 300,
-    borderRadius: 15,
-  },
   inner_container: {
     marginTop: SIZES.radius,
     marginLeft: SIZES.padding,
@@ -27,12 +18,7 @@ export default StyleSheet.create({
     ...FONTS.h2,
     color: COLORS.gray1,
   },
-  creator: {
-    fontWeight: '200',
-    fontSize: 25,
-    flexDirection: 'row',
-  },
-  creator_container: {
+  comics_container: {
     backgroundColor: 'grey',
     margin: 3,
     borderRadius: 10,

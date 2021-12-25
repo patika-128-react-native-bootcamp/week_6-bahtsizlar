@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import StackNavigation from './StackNavigation';
 import CharactersListPage from '../pages/CharactersListPage';
+import CharacterStack from './CharacterStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,8 +28,8 @@ const Navigation = () => {
             ),
             tabBarLabel: 'Hero Search',
           }}
-          name="Search"
-          component={CharactersListPage}
+          name="CharacterStack"
+          component={CharacterStack}
         />
       </Tab.Navigator>
     </NavigationContainer>

@@ -20,7 +20,7 @@ export const charactersApi = createApi({
     }),
     getCharacterById: builder.query({
       query: characterId =>
-        `/public/characters/${characterId}/?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`,
+        `/public/characters/${characterId}/comics?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`,
       providesTags: (result, error, arg) => [{type: 'Characters', id: arg}],
     }),
   }),

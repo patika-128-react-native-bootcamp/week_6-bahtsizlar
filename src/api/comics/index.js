@@ -10,7 +10,7 @@ export const comicsApi = createApi({
   endpoints: builder => ({
     getAllComics: builder.query({
       query: () =>
-        `/public/comics?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`,
+        `/public/comics?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}&limit=100`,
       providesTags: (result, error, arg) => [{type: 'Comics', id: arg}],
     }),
     getComicById: builder.query({
