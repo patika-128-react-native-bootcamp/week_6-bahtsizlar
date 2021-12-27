@@ -1,19 +1,32 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/core';
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Button,
-  Image,
-} from 'react-native';
-
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {View, Text, FlatList, TouchableOpacity} from 'react-native';
+import {IconButton, Colors} from 'react-native-paper';
 import styles from './CharacterList.style';
 
-const CharacterList = ({data}) => {
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useAppSelector, useAppDispatch} from '../../store';
+import {
+  getFavoritesList,
+  removeFavorite,
+  getSingleFavCharById,
+} from '../../api/favoritesApiSlice';
+
+const CharacterList = ({data, onPress}) => {
   const navigation = useNavigation();
+  const isFavorite = true;
+  const dispatch = useAppDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getFavoritesList());
+  // }, []);
+
+  const clickHandler = item => {
+    dispatch(getSingleFavCharById(item)).then(() => {
+      console.log('--->', getMyObject());
+    });
+  };
+  // listelerken dispatchten kıyaslamalı favla
   return (
     <FlatList
       data={data.data.results}
@@ -27,17 +40,19 @@ const CharacterList = ({data}) => {
                 <View style={styles.image_container}></View>
                 <View style={styles.inner_container}>
                   <Text style={styles.text}>{item.name}</Text>
-                  <Icon name="heart" />
                 </View>
               </TouchableOpacity>
-            </View>
 
-            {/* 
-                if favorites
-                <Button>
-                  <Text>Remove from favorites</Text>
-                  <Icon name="heart-outline" />
-                </Button> */}
+              {/* <Icon name="heart" size={25} /> */}
+
+              <IconButton
+                icon={isFavorite ? 'heart' : 'heart-outline'}
+                color={Colors.red500}
+                size={20}
+                onPress={() => clickHandler(item.id)}
+                // onPress={() => dispatch(removeFavorite(item.id))}
+              />
+            </View>
           </>
         );
       }}
@@ -46,3 +61,15 @@ const CharacterList = ({data}) => {
 };
 
 export default CharacterList;
+
+const getMyObject = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('Character');
+    console.log('jsondeger', jsonValue);
+    return jsonValue != null ? JSON.parse(jsonValue) : null;
+  } catch (e) {
+    // read error
+  }
+
+  console.log('Done.');
+};

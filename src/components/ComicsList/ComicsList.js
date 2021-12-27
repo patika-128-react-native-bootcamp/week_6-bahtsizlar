@@ -1,11 +1,12 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {FlatList, Text} from 'react-native';
-import {ActivityIndicator, Colors} from 'react-native-paper';
-import {useGetAllComicsQuery} from '../../api/comics/';
+import React from 'react';
+import {FlatList} from 'react-native';
+
 import MovieCard from '../MovieCard';
+import uuid from 'react-native-uuid';
 
 const ComicsList = ({data}) => {
+  const navigation = useNavigation();
   function handleAddFavorite() {
     console.log('giz');
   }
@@ -16,9 +17,12 @@ const ComicsList = ({data}) => {
       renderItem={() =>
         data.data.results.map(item => (
           <MovieCard
+            key={uuid.v4()}
             item={item}
             onFavPress={handleAddFavorite}
-            //   onComicPressed={() => goDetailPage(item)}
+            onComicPressed={() => {
+              navigation.navigate('ComicDetail', item.id);
+            }}
           />
         ))
       }

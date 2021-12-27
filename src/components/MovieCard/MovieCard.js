@@ -31,9 +31,6 @@ const MovieCard = ({item, onComicPressed, onFavPress}) => (
             );
           })}
         </ScrollView>
-        {/* <TouchableHighlight style={styles.btn} onPress={onFavPress}>
-          <Icon name="favorite-border" size={32} />
-        </TouchableHighlight> */}
       </View>
     </TouchableOpacity>
   </View>

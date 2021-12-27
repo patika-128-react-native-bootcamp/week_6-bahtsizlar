@@ -15,10 +15,19 @@ export const comicsApi = createApi({
     }),
     getComicById: builder.query({
       query: comicId =>
-        `/public/comics/${comicId}/?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`,
-      providesTags: (result, error, arg) => [{type: 'Comic', id: arg}],
+        `/public/comics/${comicId}?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`,
+      providesTags: (result, error, arg) => [{type: 'Comics', id: arg}],
+    }),
+    getComicByIdToStories: builder.query({
+      query: comicId =>
+        `/public/comics/${comicId}/stories?ts=${TIME_STAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`,
+      providesTags: (result, error, arg) => [{type: 'Comics', id: arg}],
     }),
   }),
 });
 
-export const {useGetAllComicsQuery, useGetComicByIdQuery} = comicsApi;
+export const {
+  useGetAllComicsQuery,
+  useGetComicByIdQuery,
+  useGetComicByIdToStoriesQuery,
+} = comicsApi;

@@ -3,9 +3,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import StackNavigation from './StackNavigation';
 import CharactersListPage from '../pages/CharactersListPage';
+import HomeStack from './HomeStack';
+
 import CharacterStack from './CharacterStack';
+import FavoriteStack from './FavoriteStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +21,7 @@ const Navigation = () => {
             tabBarLabel: 'Home',
           }}
           name="HomePage"
-          component={StackNavigation}
+          component={HomeStack}
         />
         <Tab.Screen
           options={{
@@ -30,6 +32,14 @@ const Navigation = () => {
           }}
           name="CharacterStack"
           component={CharacterStack}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({...rest}) => <Icon name="heart-outline" {...rest} />,
+            tabBarLabel: 'Favorites',
+          }}
+          name="FavoriteStack"
+          component={FavoriteStack}
         />
       </Tab.Navigator>
     </NavigationContainer>

@@ -6,6 +6,9 @@ import {useGetCharacterByNameQuery} from '../../api/characters';
 import CharacterList from '../../components/CharacterList';
 
 const AllCharacterList = ({searchValue}) => {
+  const handleAddFavorite = data => {
+    console.log(data.id);
+  };
   const {data, error, isFetching, isLoading} =
     useGetCharacterByNameQuery(searchValue);
 
@@ -18,7 +21,7 @@ const AllCharacterList = ({searchValue}) => {
   if (data) {
     return (
       <SafeAreaView>
-        <CharacterList data={data} />
+        <CharacterList data={data} onPress={handleAddFavorite(data.id)} />
       </SafeAreaView>
     );
   }
