@@ -1,14 +1,12 @@
 import React from 'react';
-
 import {SafeAreaView, Text} from 'react-native';
-import {useGetAllCharactersQuery} from '../../api/characters';
 import {ActivityIndicator, Colors} from 'react-native-paper';
 
+import {useGetAllCharactersQuery} from '../../api/characters';
 import CharacterList from '../../components/CharacterList';
 
 const AllCharacterList = () => {
   const {data, error, isFetching, isLoading} = useGetAllCharactersQuery();
-
   if (error) return <Text>Error</Text>;
   if (isFetching)
     return <ActivityIndicator animating={true} color={Colors.red800} />;
@@ -18,7 +16,7 @@ const AllCharacterList = () => {
   if (data) {
     return (
       <SafeAreaView>
-        <CharacterList data={data} />
+        <CharacterList res={data} />
       </SafeAreaView>
     );
   }

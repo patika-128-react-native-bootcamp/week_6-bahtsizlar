@@ -3,7 +3,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import CharactersListPage from '../pages/CharactersListPage';
 import HomeStack from './HomeStack';
 
 import CharacterStack from './CharacterStack';

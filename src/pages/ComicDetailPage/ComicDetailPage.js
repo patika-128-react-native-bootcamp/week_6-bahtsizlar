@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {ActivityIndicator, Colors} from 'react-native-paper';
+
 import {useGetComicByIdQuery} from '../../api/comics';
 import ComicDetail from '../../components/ComicDetail';
 

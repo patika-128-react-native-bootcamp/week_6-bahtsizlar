@@ -1,12 +1,17 @@
-import React from 'react';
-
+import React, {useEffect, useState} from 'react';
 import {Text} from 'react-native';
 
-const FavoritesPage = () => {
-  //Comics Favorites
+import {readData} from '../../utils';
 
-  //Characters Favorites
-  return <Text>Favorites</Text>;
+const FavoritesPage = () => {
+  const [favChars, setFavChars] = useState([]);
+  useEffect(() => {
+    readData(setFavChars);
+  }, []);
+  for (const [key, value] of Object.entries(favChars)) {
+    console.log(` ${value.name}`);
+  }
+  return <Text>Favorite Page </Text>;
 };
 
 export default FavoritesPage;

@@ -1,17 +1,10 @@
 import * as React from 'react';
-import {
-  TouchableOpacity,
-  Button,
-  Image,
-  Text,
-  View,
-  ScrollView,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import styles from './MovieCard.styles';
 import uuid from 'react-native-uuid';
+import {TouchableOpacity, Image, Text, View, ScrollView} from 'react-native';
 
-const MovieCard = ({item, onComicPressed, onFavPress}) => (
+import styles from './MovieCard.styles';
+
+const MovieCard = ({item, onComicPressed}) => (
   <View style={styles.card}>
     <TouchableOpacity onPress={onComicPressed} style={styles.container}>
       <Image

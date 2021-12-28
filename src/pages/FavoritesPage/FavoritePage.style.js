@@ -27,15 +27,8 @@ export default StyleSheet.create({
     ...FONTS.h2,
     color: COLORS.gray1,
   },
-  creator: {
-    fontWeight: '200',
-    fontSize: 25,
-    flexDirection: 'row',
-  },
-  creator_container: {
-    backgroundColor: 'grey',
-    margin: 3,
-    borderRadius: 10,
-    padding: 5,
+  description: {
+    ...FONTS.h3,
+    color: COLORS.lightGray,
   },
 });
